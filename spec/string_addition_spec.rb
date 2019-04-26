@@ -15,5 +15,10 @@ describe 'String Addition' do
         expect(add('1,2')).to eql(3)
       end
     end
+    context 'given the string "1,2,3,4,5"' do
+      it 'returns 15' do
+        expect(add('1,2,3,4,5')).to eql(15)
+      end
+    end
   end
 end
