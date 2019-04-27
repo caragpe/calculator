@@ -1,7 +1,6 @@
 require 'byebug'
 
 def add(input_string = "")
-  # byebug
   separator = custom_delimiter(input_string) || ","
   input_values = string_to_array(input_string, separator)
   return if error_when_negative_value(input_values)
