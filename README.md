@@ -8,8 +8,14 @@ StringAddition is simple string calculator based in Ruby.
   1. Returns integer value as output, or RuntimeError.
   1. Uses the character "," (comma) as default number delimiter
   1. Supports newline characters as part of the string without impacting the calculation.
-  1. Supports custom delimiter using the format: _//[custom_delimiter]\n1[custom_delimiter]2[custom_delimiter]3_
-  1. Supports multiple custom delimiters using the format: _//[custom_delimiter_1],[custom_delimiter_2]\n1[custom_delimiter_1]2[custom_delimiter_2]3_
+  1. Supports custom delimiter using the format:
+```
+//[custom_delimiter]\n1[custom_delimiter]2[custom_delimiter]3
+```
+  1. Supports multiple custom delimiters using the format:
+```
+//[custom_delimiter_1],[custom_delimiter_2]\n1[custom_delimiter_1]2[custom_delimiter_2]3
+```
   1. Delimiters can be arbitrary length. I.e.: @@@@ , **, $$$
 
 ## Restrictions
@@ -72,3 +78,7 @@ string_array.each do |string|
   puts "---------"
 end
 ```
+
+## ToDo
+
+`string_to_array(input_string)` method may return an array with zeros at the beginning of the array *equal to the number of custom delimiters used*. It does not affect the calculation. This is *not happening with custom delimiter*. Refactor is needed to remove those non-existent 0s in the array.
