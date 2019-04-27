@@ -9,6 +9,7 @@ string_array = [
   "//@@\n2@@2@@1",
   "//$$$,**,^\n1$$$2**3^5**6"
 ]
+
 string_array.each do |string|
   puts "Input string: #{string}"
   puts "Return value: #{myStringNumberAddition.add(string)}"
