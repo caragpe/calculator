@@ -1,4 +1,7 @@
+require 'byebug'
+
 def add(input_string = "")
+  # byebug
   separator = custom_delimiter(input_string) || ","
   input_values = string_to_array(input_string, separator)
   return if error_when_negative_value(input_values)
@@ -20,10 +23,20 @@ def sanitize_newlines(input_string)
 end
 
 def custom_delimiter(input_string)
-  new_line = "\n"
-  new_delimiter_regex = Regexp.new("//")
-  match_result = input_string.match(new_delimiter_regex)
-  match_result.nil? ? nil : input_string.split(new_line)[0].gsub("//","")
+  delimiter_control_characters = Regexp.new("//")
+  match_result = input_string.match(delimiter_control_characters)
+  match_result.nil? ? nil : extract_delimiter_characters(input_string)
+end
+
+def extract_delimiter_characters(input_string)
+  delimiter_candidate = input_string.split("\n")[0].gsub("//","").split(",")
+  regex_delimiter(delimiter_candidate)
+end
+
+def regex_delimiter(delimiters_array)
+  escaped_delimiter_array = delimiters_array.map { |delimiter| Regexp.escape(delimiter) }
+  escaped_delimiter_string = escaped_delimiter_array.join("|")
+  Regexp.new(escaped_delimiter_string)
 end
 
 def error_when_negative_value(values_array)

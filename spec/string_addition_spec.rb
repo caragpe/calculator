@@ -62,11 +62,19 @@ describe 'String Addition' do
       it 'throws an expection' do
         expect{ add("1,-2") }.to raise_error(RuntimeError)
       end
-      it 'throws an expection with error msg "Negatives not allowed"' do
+      it 'displays error message "Negatives not allowed"' do
         expect{ add("1,-2") }.to raise_error(RuntimeError, /Negatives not allowed/)
       end
-      it 'throws an expection displaying invalid values' do
+      it 'displays invalid values' do
         expect{ add("1,-2,-5") }.to raise_error(RuntimeError, /\[-2, -5\]/)
+      end
+    end
+    context 'given the input string includes more that one custom value delimiter' do
+      it 'returns 6 when the input string is "//$,@\n1$2@3"' do
+        expect(add("//$,@\n1$2@3")).to eql(6)
+      end
+      it 'returns 11 when the input string is "//$,*,^\n1$2*3^5"' do
+        expect(add("//$,*,^\n1$2*3^5")).to eql(11)
       end
     end
   end
