@@ -31,6 +31,11 @@ describe 'String Addition' do
         expect(add("2\n,\n2,4\n")).to eql(8)
       end
     end
+    context 'given the string contains values larger than 1000"' do
+      it 'ignores values large than 1000 with an input "2,1001"' do
+        expect(add("2,1001")).to eql(2)
+      end
+    end
     context 'given the input string includes any single-character as delimiter instead of ","' do
       it 'returns 8 when input is "//;\n1;3;4"' do
         expect(add("//;\n1;3;4")).to eql(8)
