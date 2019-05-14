@@ -79,6 +79,6 @@ string_array.each do |string|
 end
 ```
 
-## ToDo
+## Fixes
 
-`string_to_array(input_string)` method may return an array with zeros at the beginning of the array *equal to the number of custom delimiters used*. It does not affect the calculation. This is *not happening with custom delimiter*. Refactor is needed to remove those non-existent 0s in the array.
+- [SA-1](http://bugtrackingsystem.example.localhost/SA-1) `string_to_array(input_string)` method includes a fix to prevent returning any 0 value .

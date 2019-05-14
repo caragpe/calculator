@@ -13,7 +13,14 @@ class StringAddition
 
   private
     def string_to_array(input_string)
-      input_string.split(string_separator).map(&:to_i)
+      temp_array = input_string.split(string_separator).map(&:to_i)
+      remove_zeros_from_array(temp_array)
+    end
+
+    def remove_zeros_from_array(array)
+      result = []
+      array.each { |element| result << element if element != 0 }
+      result
     end
 
     def has_newline?(input_string)
