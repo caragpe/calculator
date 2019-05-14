@@ -79,8 +79,11 @@ describe 'String Addition' do
       it 'returns 11 when the input string is "//$,*,^\n1$2*3^5"' do
         expect(@myAddition.add("//$,*,^\n1$2*3^5")).to eql(11)
       end
-      it 'returns 11 when the input string is "//$$$,**,^\n1$$$2**3^5**6"' do
+      it 'returns 17 when the input string is "//$$$,**,^\n1$$$2**3^5**6"' do
         expect(@myAddition.add("//$$$,**,^\n1$$$2**3^5**6")).to eql(17)
+      end
+      it 'returns 18 when the input string is "//$$$,**,^\n1$$$2**3^5**\n7"' do
+        expect(@myAddition.add("//$$$,**,^\n1$$$2**3^5**\n7")).to eql(18)
       end
     end
   end

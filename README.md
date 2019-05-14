@@ -82,3 +82,5 @@ end
 ## ToDo
 
 `string_to_array(input_string)` method may return an array with zeros at the beginning of the array *equal to the number of custom delimiters used*. It does not affect the calculation. This is *not happening with custom delimiter*. Refactor is needed to remove those non-existent 0s in the array.
+
+Investigate if `to_i` can cause any server error depending on user input. As of now, `to_i` successfully removes any \n character from the string array.

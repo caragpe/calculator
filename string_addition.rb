@@ -6,7 +6,6 @@ class StringAddition
   def add(input_string = "")
     @string_separator = custom_delimiter(input_string) || ","
     @input_values = string_to_array(input_string)
-    remove_newline_characters(input_string) if has_newline?(input_string)
     return if error_when_negative_value
     calculate_sum
   end
@@ -14,15 +13,6 @@ class StringAddition
   private
     def string_to_array(input_string)
       input_string.split(string_separator).map(&:to_i)
-    end
-
-    def has_newline?(input_string)
-      new_line_regex = Regexp.new("\n")
-      input_string.match(new_line_regex).nil? ? false : true
-    end
-
-    def remove_newline_characters(input_string)
-      input_string.gsub!("\n","")
     end
 
     def error_when_negative_value
