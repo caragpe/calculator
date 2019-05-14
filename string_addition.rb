@@ -13,7 +13,7 @@ class StringAddition
 
   private
     def string_to_array(input_string)
-      input_string.split(@string_separator).map(&:to_i)
+      input_string.split(string_separator).map(&:to_i)
     end
 
     def has_newline?(input_string)
@@ -27,7 +27,7 @@ class StringAddition
 
     def error_when_negative_value
       negative_values = []
-      @input_values.map{ |value| negative_values << value if value < 0 }
+      input_values.map{ |value| negative_values << value if value < 0 }
       raise "Negatives not allowed: #{negative_values.inspect}" if negative_values.size > 0
       false
     end
@@ -50,7 +50,7 @@ class StringAddition
     end
 
     def calculate_sum
-      @input_values.reduce(0) { |sum, current_value| sum + sanitize_values_larger_than_1000(current_value)}
+      input_values.reduce(0) { |sum, current_value| sum + sanitize_values_larger_than_1000(current_value)}
     end
 
     def sanitize_values_larger_than_1000(value)
