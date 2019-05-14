@@ -1,6 +1,6 @@
 # StringAddition
 
-StringAddition is simple string calculator based in Ruby.
+StringAddition is a simple string calculator based in Ruby.
 
 ## Features
 
